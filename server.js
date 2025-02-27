@@ -4,7 +4,7 @@ import {createClient} from '@supabase/supabase-js'
 import dotenv from 'dotenv';
 import js2xmlparser from "js2xmlparser"; // Convert JSON to XML
 import yaml from 'js-yaml';
-dotenv.config({ path: '../../.env'});
+dotenv.config({ path: '.env'});
 
 const app=express()
 const port=3000
@@ -35,6 +35,10 @@ function formatResponse(req, res, data) {
         res.json(data) // Default to JSON
     }
 }
+
+app.get("/",(req,res)=>{
+    res.send("Hello")
+})
 
 
 app.post("/secret",async(req,res)=>{
